@@ -1,32 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Teacher's Day</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Presentable UI font + handwritten for note -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="floating-text">Happy Teacher's Day! Haha cute</div>
-  <h1 class="main-title">Happy Teacher's Day!</h1>
-  
-  <div class="gift-container">
-    <p class="press-me">Press Me</p>
-    <div id="gift-box"></div>
-  </div>
+  <!-- many small hollow texts that fill the background -->
+  <div id="floatingText" aria-hidden="true"></div>
 
-  <div id="letter">
-    <img src="boquete.png" alt="Bouquet" class="bouquet">
-    <div class="note">
-      <p>Dear Teacher,</p>
-      <p>You’ve touched our lives in many ways, and today we celebrate the heart you put into teaching. 
-      We appreciate you more than words can say.</p>
-      <p>With love and gratitude,</p>
-      <p>Your Students 💙</p>
+  <!-- main content -->
+  <header class="header">
+    <h1 class="main-title">Happy Teacher’s Day!</h1>
+  </header>
+
+  <main class="main">
+    <!-- gift with Press Me label -->
+    <div class="gift-area">
+      <div class="press">Press me</div>
+      <button id="giftBtn" class="gift" aria-label="Open gift">
+        <span class="lid"></span>
+        <span class="box"></span>
+        <span class="ribbon"></span>
+      </button>
     </div>
-  </div>
 
-  <canvas id="confetti"></canvas>
+    <!-- card wrapper: bouquet sits half behind the card on the left -->
+    <div class="card-wrapper" id="cardWrapper" aria-live="polite">
+      <img src="bouquet.png" alt="" class="bouquet" id="bouquet">
+      <article class="card" id="card" role="region" aria-label="Teacher note">
+        <div class="card-inner">
+          <h2 class="card-title">💐 A Note for You</h2>
+          <div id="noteText" class="note-text" aria-atomic="true"></div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- confetti canvas (above everything) -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
   <script src="script.js"></script>
 </body>
 </html>
