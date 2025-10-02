@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("Untitled design (1).png") no-repeat center bottom;
+  background-size: cover;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* Floating words */
+.floating-text {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.floating-text::before {
+  content: "Happy Teacher's Day! Haha cute • Happy Teacher's Day! Haha cute • ";
+  position: absolute;
+  font-size: 4em;
+  font-weight: bold;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+  color: rgba(255, 255, 255, 0.15);
+  -webkit-text-stroke: 1px #0073e6;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Gift box */
+.gift-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.gift-box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}
+.gift-box .box {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #004080, #0073e6);
+  border-radius: 10px;
+}
+.gift-box .lid {
+  position: absolute;
+  top: -30px;
+  width: 100%;
+  height: 40px;
+  background: #003366;
+  border-radius: 10px;
+  transition: transform 0.6s ease;
+}
+.gift-box.open .lid {
+  transform: rotate(-25deg) translateY(-60px);
+}
+
+/* Popup card */
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.popup-card {
+  background: rgba(0,0,40,0.85);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  color: #f0f8ff;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: appear 1.5s forwards;
+}
+.popup-card h2 {
+  margin: 0 0 15px;
+  font-size: 2em;
+}
+.popup-card p {
+  font-size: 1.2em;
+  line-height: 1.6em;
+  white-space: pre-line;
+}
+.popup-card .flowers {
+  margin-top: 15px;
+  font-size: 2em;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

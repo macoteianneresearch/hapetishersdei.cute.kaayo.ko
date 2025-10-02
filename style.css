@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: url('background.png') no-repeat center center/cover;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 3em;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 6px black;
+  margin-top: 20px;
+}
+
+.floating-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: moveText 20s linear infinite;
+}
+
+@keyframes moveText {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.gift-container {
+  margin-top: 50px;
+}
+
+.press-me {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: yellow;
+  margin-bottom: 10px;
+}
+
+#gift-box {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #0044cc, #0066ff);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#letter {
+  display: none;
+  margin: 20px auto;
+  width: 60%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2em;
+  color: #333;
+  position: relative;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.bouquet {
+  position: absolute;
+  left: -80px;
+  top: 20px;
+  width: 200px;
+  transform: rotate(-10deg);
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+canvas#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
